@@ -35,15 +35,14 @@ class ViewController: UIViewController {
     func validatePassword(pass: String) -> Bool {
         // don't say passwordText.text
         let charSet = CharacterSet(charactersIn: "!%@#$&")
-        var isItTrue: Bool = true
+        var isItTrue: Bool = false
         if pass.rangeOfCharacter(from: charSet) != nil {
             // it has it
             if pass.count >= 8 {
                 isItTrue = true
-                return isItTrue
             } else {
                 whatError = "Your password is not 8 characters long"
-                return false
+                isItTrue = false
             }
         } else {
             whatError = "Your Password is missing a Sp. character"
